@@ -2,7 +2,7 @@
 
 # set PROCESS_NUM=$(ps -o rss= -p `pidof GOING11`)
 # PROCESS_NUM="$(vmmap `pidof GOING11` | (head -n1 && grep "." | tail -1))"
-PROCESS_NUM="$(vmmap `/usr/bin/pidof GOING11` | (grep "." | tail -1))"
+PROCESS_NUM="$(vmmap `/usr/local/bin/pidof GOING11` | (grep "." | tail -1))"
 
 # echo "Memory occupied: ${PROCESS_NUM}"
 
@@ -25,18 +25,18 @@ byte=$(echo $(($byte + 0)))
 
 if [[ "$bytetype" == "G" ]];then
 	# echo "IS G"
-	kill -9 $(/usr/bin/pidof GOING11)
+	kill -9 $(/usr/local/bin/pidof GOING11)
 else
 	if [[ $memory =~ [0-9]{1}.[0-9]{1,3}M ]]; then
 		if (( $byte > 400 )); then
 			# echo "$byte is over megabyte"
-			kill -9 $(/usr/bin/pidof GOING11)
+			kill -9 $(/usr/local/bin/pidof GOING11)
 		# else
 			# echo "$byte not over!!"
 		fi
 	else
 	    # echo "oops"
-	    kill -9 $(/usr/bin/pidof GOING11)
+	    kill -9 $(/usr/local/bin/pidof GOING11)
 	fi
 fi
 

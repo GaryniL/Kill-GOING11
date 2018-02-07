@@ -2,7 +2,7 @@
 
 # copy killing script and pidof command to /usr/bin
 sudo cp ./killGOING11.sh /usr/bin/killGOING11.sh
-sudo cp ./pidof /usr/bin/pidof
+# sudo cp ./pidof /usr/bin/pidof
 
 # modified to executable
 sudo chmod +x /usr/bin/killGOING11.sh
